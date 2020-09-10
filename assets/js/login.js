@@ -30,28 +30,29 @@ $(function () {
             username: $('#form_reg [name=username]').val(),
             password: $('#form_reg [name=password]').val()
         }
-        /*  $.ajax({
-             url: 'http://ajax.frontend.itheima.net/api/reguser',
-             data: data,
-             type: 'post',
-             success: function (res) {
-                 console.log(res)
-                 if (res.status != 0) {
-                     return layer.msg(res.message)
-                 }
-                 layer.msg('注册成功')
-                 $('#link_login').click()
-             }
-         }) */
-        $.post('/api/reguser', data, function (res) {
-            console.log(res)
-            if (res.status != 0) {
-                return layer.msg(res.message)
-            }
-            layer.msg('注册成功')
-            $('#link_login').click()
+        $.ajax({
+            url: '/api/reguser',
 
+            data: data,
+            type: 'post',
+            success: function (res) {
+               // console.log(res)
+                if (res.status != 0) {
+                    return layer.msg(res.message)
+                }
+                layer.msg('注册成功')
+                $('#link_login').click()
+            }
         })
+        // $.post('/api/reguser', data, function (res) {
+        //     console.log(res)
+        //     if (res.status != 0) {
+        //         return layer.msg(res.message)
+        //     }
+        //     layer.msg('注册成功')
+        //     $('#link_login').click()
+
+        // })
 
 
 
@@ -64,7 +65,7 @@ $(function () {
             url: '/api/login',
             data: $(this).serialize(),
             success: function (res) {
-                console.log(res)
+               // console.log(res)
                 if (res.status != 0) {
                     return layer.msg('登录失败')
                 }

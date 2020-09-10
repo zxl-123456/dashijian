@@ -1,4 +1,4 @@
-$(function () {
+
     getUserInfo();
     function getUserInfo() {
         $.ajax({
@@ -35,10 +35,10 @@ $(function () {
     $('.tuichu').on('click', function () {
         var layer = layui.layer
         layer.confirm('确定退出？', { icon: 3, title: '提示' }, function (index) {
-            console.log(index)
+          //  console.log(index)
             localStorage.removeItem('token')
             location.href = "/login.html"
             layer.close(index)
         })
     })
-})
+
